@@ -1,0 +1,142 @@
+package graficos;
+
+import java.awt.*;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+
+import javax.swing.*;
+import javax.swing.text.StyledEditorKit;
+import javax.swing.text.StyledEditorKit.FontSizeAction;
+
+public class Procesador2 {
+
+	public static void main(String[] args) {
+		MarcoProcesador2 mimarco = new MarcoProcesador2();
+		mimarco.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+
+	}
+
+}
+class MarcoProcesador2 extends JFrame{
+	public MarcoProcesador2() {
+		setBounds(500,300,500,350);
+		
+		LaminaProcesador2 milamina = new LaminaProcesador2();
+		add(milamina);
+		setVisible(true);
+	}
+}
+class LaminaProcesador2 extends JPanel{
+	public LaminaProcesador2(){
+		setLayout(new BorderLayout());
+		JPanel laminamenu= new JPanel();
+		fuente = new JMenu("Fuente");
+		 tamano = new JMenu("Tamaño");
+    	 estilo = new JMenu("Estilo");
+    	 //todas las fuentes pero no queda bien pq es muy largo
+    	  String [] array_fuentes = GraphicsEnvironment.getLocalGraphicsEnvironment().getAvailableFontFamilyNames();
+    	  String letra;
+    	  for (int i=0;i<=array_fuentes.length-1;i++){
+    		  letra=(String)array_fuentes[i];
+    		  configura_menu(letra, "fuente",letra,0,0,"");
+    	  }
+		//estos elementos cambiar la letra
+//		configura_menu("arial", "fuente","Arial",0,0,"");
+//		configura_menu("courier", "fuente","Courier",0,0,"");
+//		configura_menu("verdana", "fuente","Verdana",0,0,"");
+    	  
+    	  
+    	  
+		//este cambia el estilo. Lo comento para usar los checkbos
+		configura_menu("Negrita", "estilo","",Font.BOLD,1,"bin/graficos/negrita.gif");
+		configura_menu("Cursiva", "estilo","",Font.ITALIC,1,"bin/graficos/cursiva.gif");
+		//no existe la constante para el subrayado, asi que le paso el codigo 99 y lo tratare como subrayado
+		configura_menu("Subrayado", "estilo","",99,1,"bin/graficos/subrayado.gif");
+		//***********************************
+		// ahora  voy a hacer los estilos  con checbox
+		//***************************************
+		JCheckBoxMenuItem negrita = new JCheckBoxMenuItem("Negrita", new ImageIcon("bin/graficos/negrita.gif"));
+		JCheckBoxMenuItem cursiva = new JCheckBoxMenuItem("Cursiva", new ImageIcon("bin/graficos/cursiva.gif"));
+		JCheckBoxMenuItem subrayado = new JCheckBoxMenuItem("Subrayado", new ImageIcon("bin/graficos/subrayado.gif"));		
+		negrita.addActionListener(new StyledEditorKit.BoldAction());
+		cursiva.addActionListener(new StyledEditorKit.ItalicAction());
+		subrayado.addActionListener(new StyledEditorKit.UnderlineAction());
+		estilo.add(negrita);
+		estilo.add(cursiva);
+		estilo.add(subrayado);
+		//este configura el tamano. Ponemos 9 pq no equivale a ningun estilo
+		configura_menu("12", "tamano","",9,12,"");
+		configura_menu("16", "tamano","",9,16,"");
+		configura_menu("20", "tamano","",9,20,"");
+		configura_menu("24", "tamano","",9,24,"");
+		//***********************************
+		// ahora  voy a hacer los tamaños  con radiobutton
+		//******************************************
+		ButtonGroup tamanoo_letra = new ButtonGroup();
+		JRadioButtonMenuItem tam12 = new JRadioButtonMenuItem("12");
+		JRadioButtonMenuItem tam16 = new JRadioButtonMenuItem("16");
+		JRadioButtonMenuItem tam20 = new JRadioButtonMenuItem("20");
+		JRadioButtonMenuItem tam24 = new JRadioButtonMenuItem("24");
+		
+		tamanoo_letra.add(tam12);
+		tamanoo_letra.add(tam16);
+		tamanoo_letra.add(tam20);
+		tamanoo_letra.add(tam24);
+		tam12.addActionListener(new StyledEditorKit.FontSizeAction("cambia_tamano", 12));
+		tam16.addActionListener(new StyledEditorKit.FontSizeAction("cambia_tamano", 16));
+		tam20.addActionListener(new StyledEditorKit.FontSizeAction("cambia_tamano", 20));
+		tam24.addActionListener(new StyledEditorKit.FontSizeAction("cambia_tamano", 24));
+		tamano.add(tam12);
+		tamano.add(tam16);
+		tamano.add(tam20);
+		tamano.add(tam24);
+		
+		mibarra = new JMenuBar();
+		mibarra.add(fuente);
+		
+		mibarra.add(estilo);
+		mibarra.add(tamano);
+		add(mibarra);//agrego el menu a la lamina
+		laminamenu.add(mibarra);
+		add(laminamenu, BorderLayout.NORTH);
+		miarea = new JTextPane();
+		add(miarea, BorderLayout.CENTER);
+		
+		
+		//anado el menu contextual
+		JPopupMenu emergente = new JPopupMenu();
+		//agregamos lo elementos del menu
+		JMenuItem  negritam= new JMenuItem("Negrita");
+		emergente.add(negritam);
+		JMenuItem  cursivam= new JMenuItem("Cursiva");
+		emergente.add(cursivam);
+	}
+	private JMenuBar mibarra;
+	private JTextPane miarea ;
+	JMenu fuente, estilo, tamano;
+	Font letras;
+	public void configura_menu(String rotulo, String menu, String tipo_letra, int estilos, int tamanoo, String ruta){
+		JMenuItem elem_menu = new JMenuItem(rotulo, new ImageIcon(ruta));
+		
+	   /* if (menu=="fuente") {
+	    	fuente.add(elem_menu);
+	    	elem_menu.addActionListener(new StyledEditorKit.FontFamilyAction("", tipo_letra));
+	    }else if (menu=="estilo") {
+	    	estilo.add(elem_menu);
+	    	if (estilos == Font.BOLD){
+	    		elem_menu.addActionListener(new StyledEditorKit.BoldAction());
+	    	}else if (estilos == Font.ITALIC){
+	    		elem_menu.addActionListener(new StyledEditorKit.ItalicAction());
+	    	}else if (estilos == 99){
+	    		elem_menu.addActionListener(new StyledEditorKit.UnderlineAction());
+	    	}
+	    }else*/ if (menu=="tamano") {
+	    	tamano.add(elem_menu);
+	    	//el primer arg ponemos cualquier cosas
+	    	elem_menu.addActionListener(new StyledEditorKit.FontSizeAction("cambia_tamano", tamanoo));
+	    }
+		//elem_menu.addActionListener(new Gestiona_Eventos(rotulo, tipo_letra, estilos,tamanoo));
+	
+	}
+
+}

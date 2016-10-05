@@ -1,0 +1,27 @@
+package graficos;
+
+import javax.swing.JFrame;
+import javax.swing.JPanel;
+
+public class PruebaTexto {
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+
+	}
+
+}
+class MarcoTexto extends JFrame{
+	public MarcoTexto(){
+		setTitle("Pruebas texto");
+		setVisible(true);
+		setBounds(700,300,500,300);
+		LaminaTexto lamina = new LaminaTexto();
+		add(lamina);
+	}
+}
+class LaminaTexto extends JPanel {
+	public LaminaTexto(){
+		
+	}
+}

@@ -1,0 +1,29 @@
+package graficos;
+
+import javax.swing.*;
+
+public class PruebaJTextField {
+
+	public static void main(String[] args) {
+		MarcoPruebaArea mimarco = new MarcoPruebaArea();
+		mimarco.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+
+	}
+
+}
+class MarcoPruebaArea extends JFrame{
+	public MarcoPruebaArea() {
+		setBounds(500,300,500,350);
+		setTitle("Probando Area de Texto");
+		LaminaPrueba milamina = new LaminaPrueba();
+		add(milamina);
+		setVisible(true);
+	}
+}
+class LaminaPrueba extends JPanel{
+	public LaminaPrueba(){
+		JTextField elcampo = new JTextField();
+		add(elcampo);
+		
+	}
+}

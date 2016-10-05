@@ -1,0 +1,18 @@
+package graficos;
+
+import javax.swing.*;
+
+public class PruebaJTextField {
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+
+	}
+
+}
+class MarcoPrueba extends JFrame(){
+	
+}
+class LaminaPrueba extends JPanel{
+	
+}

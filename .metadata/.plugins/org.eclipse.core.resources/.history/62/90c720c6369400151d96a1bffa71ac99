@@ -1,0 +1,33 @@
+package graficos;
+
+import javax.swing.*;
+
+public class Sintaxis_Radio {
+
+	public static void main(String[] args) {
+		MarcoRadioSintaxis mimarco = new MarcoRadioSintaxis();
+		mimarco.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+
+	}
+
+}
+class MarcoRadioSintaxis extends JFrame{
+	public MarcoRadioSintaxis() {
+		setBounds(500,300,500,350);
+		
+		LaminaRadioSintaxis milamina = new LaminaRadioSintaxis();
+		add(milamina);
+		setVisible(true);
+	}
+}
+class LaminaRadioSintaxis extends JPanel{
+	public LaminaRadioSintaxis(){
+		ButtonGroup migrupo1 = new ButtonGroup();
+		JRadioButton boton1 = new JRadioButton("Azul", false);
+		JRadioButton boton2 = new JRadioButton("Rojo", true);
+		JRadioButton boton3= new JRadioButton("Verde", false);
+		migrupo1.add(boton1);
+		migrupo1.add(boton2);
+		migrupo1.add(boton3);
+	}
+}

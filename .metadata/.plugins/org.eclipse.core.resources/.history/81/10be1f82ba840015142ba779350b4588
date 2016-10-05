@@ -1,0 +1,45 @@
+package graficos;
+
+import java.awt.Color;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+
+import javax.swing.JButton;
+import javax.swing.JFrame;
+import javax.swing.JPanel;
+
+public class pruebaAcciones {
+
+	public static void main(String[] args) {
+		MarcoAcciones mimarco = new MarcoAcciones();
+		
+		mimarco.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+	}
+
+}
+class MarcoAcciones extends JFrame{
+	
+	public MarcoAcciones() {
+		setVisible(true);
+		setBounds(700,300,500,300);
+		setTitle("Botones y eventos");
+		//creamos un objeto lamina y se la añadimos al marco
+		PanelAccion milamina = new PanelAccion();
+		add(milamina);
+	}
+}
+class PanelAccion extends JPanel{
+	JButton botonAzul = new JButton("azul");
+	JButton botonAmarillo = new JButton("amarillo");
+
+	JButton botonVerde = new JButton("verde");
+
+	//construimos la lamina y le añadimos el boton
+	public PanelAccion() {
+		add(botonAzul);
+		add(botonAmarillo);
+		add(botonVerde);
+		
+	}
+	
+}

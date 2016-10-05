@@ -1,0 +1,26 @@
+package graficos;
+
+import javax.swing.*;
+
+public class Ejemplo_Radio {
+
+	public static void main(String[] args) {
+		Marco_Radio mimarco = new Marco_Radio();
+		mimarco.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+
+	}
+
+}
+class Marco_Radio extends JFrame{
+	public Marco_Radio() {
+		setBounds(500,300,500,350);
+		
+		LaminaPrueba milamina = new LaminaPrueba();
+		add(milamina);
+		setVisible(true);
+	}
+}
+class Lamina_Radio extends JPanel{
+	public Lamina_Radio(){
+	}
+}

@@ -1,0 +1,62 @@
+package graficos;
+
+import java.awt.BorderLayout;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+
+import javax.swing.*;
+
+public class Ejemplo_Radio {
+
+	public static void main(String[] args) {
+		Marco_Radio mimarco = new Marco_Radio();
+		mimarco.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+
+	}
+
+}
+class Marco_Radio extends JFrame{
+	public Marco_Radio() {
+		setBounds(500,300,500,350);
+		
+		LaminaPrueba milamina = new LaminaPrueba();
+		add(milamina);
+		setVisible(true);
+	}
+}
+class Lamina_Radio extends JPanel{
+	public Lamina_Radio(){
+		setLayout(new BorderLayout());
+		texto = new JLabel("En un ligar de la Mancha..");
+		add(texto, BorderLayout.CENTER);
+		
+		ButtonGroup migrupo = new ButtonGroup();
+		boton1 = new JRadioButton("Pequeño", false);
+		boton2 = new JRadioButton("Mediano", true);
+		boton3 = new JRadioButton("Granbde", false);
+		boton4 = new JRadioButton("Muy Grande", false);
+		JPanel lamina_radio = new JPanel();
+		migrupo.add(boton1);
+		migrupo.add(boton2);
+		migrupo.add(boton3);
+		migrupo.add(boton4);
+		lamina_radio.add(boton1);
+		lamina_radio.add(boton2);
+		lamina_radio.add(boton3);
+		lamina_radio.add(boton4);
+		add(lamina_radio, BorderLayout.SOUTH);
+		
+	}
+	private class RadioOyenteEvento_radio implements ActionListener {
+
+		@Override
+		public void actionPerformed(ActionEvent e) {
+			// TODO Auto-generated method stub
+			
+		}
+		
+	}
+	
+	private JLabel texto;
+	private JRadioButton boton1, boton2, boton3, boton4;
+}

@@ -1,0 +1,71 @@
+package graficos;
+
+import java.awt.BorderLayout;
+import java.awt.*;
+
+import javax.swing.*;
+
+public class Procesador {
+
+	public static void main(String[] args) {
+		MarcoProcesador mimarco = new MarcoProcesador();
+		mimarco.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+
+	}
+
+}
+class MarcoProcesador extends JFrame{
+	public MarcoProcesador() {
+		setBounds(500,300,500,350);
+		
+		LaminaProcesador milamina = new LaminaProcesador();
+		add(milamina);
+		setVisible(true);
+	}
+}
+class LaminaProcesador extends JPanel{
+	public LaminaProcesador(){
+		setLayout(new BorderLayout());
+		CrearMenu();
+		add(mibarra, BorderLayout.NORTH);
+		JTextArea miarea = new JTextArea();
+		add(miarea, BorderLayout.CENTER);
+		
+	}
+	private JMenuBar mibarra;
+	private void CrearMenu() {
+		 mibarra = new JMenuBar();
+		JMenu archivo = new JMenu("Archivo");
+		JMenu edicion = new JMenu("Edición");
+		JMenu herramientas = new JMenu("Herramientas");
+		//creamos items
+		JMenuItem guardar = new JMenuItem("Guardar");
+		JMenuItem guardarcomo = new JMenuItem("Guardar como");
+		JMenuItem cortar = new JMenuItem("Cortar");
+		JMenuItem copiar = new JMenuItem("Copiar");
+		JMenuItem pegar = new JMenuItem("Pegar");
+		JMenuItem generales = new JMenuItem("Generales");
+		//creo el submenu con sus items
+		JMenu opciones = new JMenu("Opciones");
+		JMenuItem opcion1 = new JMenu("Opcion 1");
+		JMenuItem opcion2 = new JMenu("Opcion 2");
+		opciones.add(opcion1);
+		opciones.add(opcion2);
+		
+		
+		
+		archivo.add(guardar);
+		archivo.add(guardarcomo);
+		edicion.add(cortar);
+		edicion.add(copiar);
+		edicion.add(pegar);
+		edicion.addSeparator();
+		edicion.add(opciones);
+		herramientas.add(generales);
+		mibarra.add(archivo);
+		mibarra.add(edicion);
+		mibarra.add(herramientas);
+		add(mibarra);//agrego el menu a la lamina
+		
+	}
+}

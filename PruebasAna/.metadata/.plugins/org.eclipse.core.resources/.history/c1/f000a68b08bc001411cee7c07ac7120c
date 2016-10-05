@@ -1,0 +1,57 @@
+import java.util.ArrayList;
+import java.util.Iterator;
+
+
+public abstract class Grupo implements Operaciones {
+
+	public static ArrayList<Farola> creaGrupo(String consulta, int num_farolas){
+		  ArrayList<Farola> rdo= new ArrayList<Farola>();
+		  //realizo consulta y devuelve num_farolas farolas
+		  for ( int i=1; i<num_farolas;i++){
+			  
+			  rdo.add( new Farola.Builder("luminosa" + i).camaras(i).posicion(i*10, i*20).build());
+		  }
+		  return rdo;
+	  }
+	@Override
+	public void visualizar(ArrayList<Farola> grupo) {
+		Iterator<Farola> iterador = grupo.iterator();
+	    while (iterador.hasNext()){
+	    	
+	    	Farola farola_grupo = iterador.next();
+	    	System.out.println(farola_grupo.toString());
+	    }
+
+	}
+
+	@Override
+	public void encender(ArrayList<Farola> grupo) {
+		ArrayList<Farola> rdo= new ArrayList<Farola>();
+		Iterator<Farola> iterador = grupo.iterator();
+	    while (iterador.hasNext()){
+	    	
+	    	Farola farola = iterador.next();
+	    	farola.encendida = true;
+	    }
+
+	}
+
+	@Override
+	public void apagar(ArrayList<Farola> grupo) {
+		ArrayList<Farola> rdo= new ArrayList<Farola>();
+		Iterator<Farola> iterador = grupo.iterator();
+	    while (iterador.hasNext()){
+	    	
+	    	Farola farola = iterador.next();
+	    	farola.encendida = false;
+	    }
+
+	}
+
+	@Override
+	public void operacion1() {
+		// TODO Auto-generated method stub
+
+	}
+
+}

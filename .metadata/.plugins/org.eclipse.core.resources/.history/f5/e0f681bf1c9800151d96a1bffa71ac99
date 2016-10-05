@@ -1,0 +1,75 @@
+package graficos;
+
+import java.awt.BorderLayout;
+import java.awt.*;
+
+import javax.swing.*;
+
+public class Procesador {
+
+	public static void main(String[] args) {
+		MarcoProcesador mimarco = new MarcoProcesador();
+		mimarco.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+
+	}
+
+}
+class MarcoProcesador extends JFrame{
+	public MarcoProcesador() {
+		setBounds(500,300,500,350);
+		
+		LaminaProcesador milamina = new LaminaProcesador();
+		add(milamina);
+		setVisible(true);
+	}
+}
+class LaminaProcesador extends JPanel{
+	public LaminaProcesador(){
+		setLayout(new BorderLayout());
+		JPanel laminamenu= new JPanel();
+		CrearMenu();
+		laminamenu.add(mibarra, BorderLayout.NORTH);
+		add(laminamenu);
+		JTextArea miarea = new JTextArea();
+		add(miarea, BorderLayout.CENTER);
+		
+	}
+	private JMenuBar mibarra;
+	private void CrearMenu() {
+		 mibarra = new JMenuBar();
+		JMenu fuente = new JMenu("Fuente");
+		JMenu tamano = new JMenu("Tamaño");
+		JMenu estilo = new JMenu("Estilo");
+		//creamos items
+		JMenuItem arial = new JMenuItem("Arial");
+		JMenuItem comic = new JMenuItem("Comic");
+		JMenuItem negrita = new JMenuItem("Negrita");
+		JMenuItem cursiva = new JMenuItem("Cursiva");
+		JMenuItem diez= new JMenuItem("10");
+		JMenuItem doce = new JMenuItem("12");
+		JMenuItem catorce= new JMenuItem("14");
+		JMenuItem dieciseis = new JMenuItem("16");
+		//creo el submenu con sus items
+		JMenu opciones = new JMenu("Opciones");
+		JMenuItem opcion1 = new JMenu("Opcion 1");
+		JMenuItem opcion2 = new JMenu("Opcion 2");
+		opciones.add(opcion1);
+		opciones.add(opcion2);
+		
+		
+		
+		fuente.add(arial);
+		fuente.add(comic);
+		estilo.add(negrita);
+		estilo.add(cursiva);
+		tamano.add(diez);
+		tamano.add(doce);
+		tamano.add(catorce);
+		tamano.add(dieciseis);
+		mibarra.add(fuente);
+		mibarra.add(estilo);
+		mibarra.add(tamano);
+		add(mibarra);//agrego el menu a la lamina
+		
+	}
+}

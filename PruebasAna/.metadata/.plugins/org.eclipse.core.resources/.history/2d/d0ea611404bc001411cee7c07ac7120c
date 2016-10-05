@@ -1,0 +1,9 @@
+import java.util.ArrayList;
+
+
+public interface Operaciones {
+	void Visualizar(ArrayList<Farola> grupo);
+	void Encender(ArrayList<Farola> grupo);
+	void Apagar();
+	void Operacion1();
+}

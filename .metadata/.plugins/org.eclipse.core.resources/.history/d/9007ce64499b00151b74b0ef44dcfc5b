@@ -1,0 +1,29 @@
+package graficos;
+
+
+
+import javax.swing.*;
+
+public class MarcoEmergente {
+
+	public static void main(String[] args) {
+		MarcoEmergenteM mimarco = new MarcoEmergenteM();
+		mimarco.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+
+	}
+
+}
+class MarcoEmergenteM extends JFrame{
+	public MarcoEmergenteM() {
+		setBounds(500,300,500,350);
+		
+		LaminaEmergenteM milamina = new LaminaEmergenteM();
+		add(milamina);
+		setVisible(true);
+	}
+}
+class LaminaEmergenteM extends JPanel{
+	public LaminaEmergenteM(){
+		
+	}
+}

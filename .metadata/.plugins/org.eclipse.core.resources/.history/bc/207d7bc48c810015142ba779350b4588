@@ -1,0 +1,27 @@
+package graficos;
+
+import javax.swing.JFrame;
+
+//Video 74
+public class FocoEvento {
+
+	public static void main(String[] args) {
+		MarcoFoto mimarco = new MarcoFoto();
+		mimarco.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+
+	}
+
+}
+class MarcoFoto extends JFrame{
+	
+	public MarcoFoto() {
+		setVisible(true);
+		setBounds(700,300,500,300);
+		setTitle("Eventos Teclado");
+		//debemos preparar al marco para esta preparado para recibir eventos
+		EventosdeRaton2 nuevoEstado = new EventosdeRaton2();
+		addMouseMotionListener( nuevoEstado);
+	}
+	
+	
+}

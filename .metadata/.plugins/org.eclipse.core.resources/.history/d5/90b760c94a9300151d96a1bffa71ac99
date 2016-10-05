@@ -1,0 +1,75 @@
+package graficos;
+
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
+
+import javax.swing.JButton;
+import javax.swing.JFrame;
+import javax.swing.JLabel;
+import javax.swing.JPanel;
+import javax.swing.JTextField;
+
+public class PruebaTexto {
+
+	public static void main(String[] args) {
+		MarcoTexto mimarco = new MarcoTexto();
+		mimarco.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+
+	}
+
+}
+class MarcoTexto extends JFrame{
+	public MarcoTexto(){
+		setTitle("Pruebas texto");
+		
+		setBounds(700,300,500,300);
+		setVisible(true);
+		LaminaTexto lamina = new LaminaTexto();
+		add(lamina);
+	}
+}
+class LaminaTexto extends JPanel {
+	public LaminaTexto(){
+	    JLabel eti1 = new JLabel("Mail:");
+	    add(eti1);
+		campo1 = new JTextField(30);
+		add(campo1);
+		JButton boton = new JButton("Comprobar");
+		
+		DameTexto mievento = new DameTexto();
+		boton.addActionListener(mievento);
+		add(boton);
+	}
+	private class DameTexto implements ActionListener{
+
+		@Override
+		public void actionPerformed(ActionEvent e) {
+			int correcto=0;
+			String email=campo1.getText().trim();
+			for (int i=0;i< email.length();i++){
+				if (email.charAt(i)=='@'){
+					correcto++;
+				}
+			}
+			if (correcto!=1){
+				System.out.println("Texto incorrecto");
+			}else {
+				System.out.println("Incorrecto");
+			}
+			System.out.println(campo1.getText());
+			
+			// Establecer el patron
+		    Pattern p = Pattern.compile("[-\\w\\.]+@[\\.\\w]+\\.\\w+");
+
+		    // Asociar el string al patron
+		    Matcher m = p.matcher(email);
+
+		   // Comprobar si encaja
+		    System.out.println( "Encaja ?" + m.matches());
+		}
+		
+	}
+	private JTextField campo1 ;
+}

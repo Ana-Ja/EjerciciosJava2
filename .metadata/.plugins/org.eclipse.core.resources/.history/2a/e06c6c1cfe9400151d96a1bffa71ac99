@@ -1,0 +1,43 @@
+package graficos;
+
+import java.awt.Font;
+
+import javax.swing.*;
+
+public class MarcoSliders {
+
+	public static void main(String[] args) {
+		Frame_Slider2 mimarco = new Frame_Slider2();
+		mimarco.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+
+	}
+
+}
+class Frame_Slider2 extends JFrame{
+	public Frame_Slider2() {
+		setBounds(500,300,500,350);
+		
+		Lamina_Slider2 milamina = new Lamina_Slider2();
+		add(milamina);
+		setVisible(true);
+	}
+}
+class Lamina_Slider2 extends JPanel{
+	public Lamina_Slider2(){
+		//la interfa
+		JSlider control = new JSlider(20,100,25);
+		//control.setOrientation(SwingConstants.VERTICAL);
+		//marcas
+		control.setMajorTickSpacing(25);
+		control.setMinorTickSpacing(5);;
+		control.setPaintTicks(true);
+		add(control);
+		//cambio las fuentes y pinto los nnumeros
+		control.setFont(new Font("Serif", Font.ITALIC,12));;
+		control.setPaintLabels(true);
+		//con esta instruccion si dejamos el slider entre un punto intermedio entre dos
+		//marcas, hace como iman y el solo se mueve a la marca mas cercana
+		control.setSnapToTicks(true);
+		
+	}
+}

@@ -1,0 +1,83 @@
+package graficos;
+
+import java.awt.event.WindowEvent;
+import java.awt.event.WindowListener;
+
+import javax.swing.JFrame;
+
+
+//Video68
+public class Eventos_Ventana {
+
+	public static void main(String[] args) {
+		MarcoVentana mimarco = new MarcoVentana();
+		mimarco.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		mimarco.setTitle("Ventana1");
+		miMarco2.setBounds(700,300,500,300);
+		MarcoVentana miMarco2 = new MarcoVentana();
+		miMarco2.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
+		miMarco2.setTitle("VEntana2");
+		miMarco2.setBounds(900, 300, 500, 300);
+	}
+
+}
+class MarcoVentana extends JFrame{
+	
+	public MarcoVentana() {
+		setVisible(true);
+		setBounds(700,300,500,300);
+		setTitle("Botones y eventos");
+		//debemos preparar al marco para esta preparado para recibir eventos
+		M_Ventana oyente_ventana = new M_Ventana();
+		addWindowListener(oyente_ventana);
+	}
+	
+	
+}
+//creamos una clase oyente que implemnte interfaz windowListener
+class M_Ventana implements WindowListener {
+
+	@Override
+	public void windowOpened(WindowEvent e) {
+		System.out.println("Ventana abierta");
+		
+	}
+
+	@Override
+	public void windowClosing(WindowEvent e) {
+		System.out.println("Ventana se esta cerrando");
+		
+	}
+
+	@Override
+	public void windowClosed(WindowEvent e) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public void windowIconified(WindowEvent e) {
+		//escribimos un mensaje en consola cuando minimizemos la ventana
+		System.out.println("Ventana minimizada");
+		
+	}
+
+	@Override
+	public void windowDeiconified(WindowEvent e) {
+		System.out.println("Ventana maximizada");
+		
+	}
+
+	@Override
+	public void windowActivated(WindowEvent e) {
+		System.out.println("Ventana activada");
+		
+	}
+
+	@Override
+	public void windowDeactivated(WindowEvent e) {
+		System.out.println("Ventana desactivada");
+		
+	}
+	
+}

@@ -1,0 +1,23 @@
+package graficos;
+
+import javax.swing.JFrame;
+import javax.swing.JPanel;
+
+public class MarcoMenu {
+	MenuFrame mimarco = new MenuFrame();
+	mimarco.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+}
+class MenuFrame extends JFrame{
+	public MenuFrame() {
+		setBounds(500,300,500,350);
+		
+		MenuLamina milamina = new MenuLamina();
+		add(milamina);
+		setVisible(true);
+	}
+}
+class MenuLamina extends JPanel{
+	public MenuLamina(){
+		
+	}
+}

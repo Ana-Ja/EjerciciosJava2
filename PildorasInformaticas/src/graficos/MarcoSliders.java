@@ -1,0 +1,76 @@
+package graficos;
+
+import java.awt.BorderLayout;
+import java.awt.Font;
+
+import javax.swing.*;
+import javax.swing.event.ChangeEvent;
+import javax.swing.event.ChangeListener;
+
+public class MarcoSliders {
+
+	public static void main(String[] args) {
+		Frame_Slider2 mimarco = new Frame_Slider2();
+		mimarco.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+
+	}
+
+}
+class Frame_Slider2 extends JFrame{
+	public Frame_Slider2() {
+		setBounds(500,300,500,350);
+		
+		Lamina_Slider2 milamina = new Lamina_Slider2();
+		add(milamina);
+		setVisible(true);
+	}
+}
+class Lamina_Slider2 extends JPanel{
+	public Lamina_Slider2(){
+		setLayout(new BorderLayout());
+		rotulo= new JLabel("En un lugar de la Mancha");
+		add(rotulo, BorderLayout.CENTER);
+		
+		//tamanos de letra
+		control = new JSlider(8,50,12);
+		//marcas
+		control.setMajorTickSpacing(20);
+		control.setMinorTickSpacing(5);
+		//hay que decirle que pnte las marcas
+		control.setPaintTicks(true);
+		
+		//cambio las fuentes y pinto los nnumeros
+		control.setFont(new Font("Serif", Font.ITALIC,10));
+		control.setPaintLabels(true);
+		//con esta instruccion si dejamos el slider entre un punto intermedio entre dos
+		//marcas, hace como iman y el solo se mueve a la marca mas cercana
+		control.setSnapToTicks(true);
+		//otra forma de hacerlo
+//		ChangeListener s = new ChangeListener(){
+//
+//			@Override
+//			public void stateChanged(ChangeEvent e) {
+//				// TODO Auto-generated method stub
+//				
+//			}
+//			
+//		};
+//		control.addChangeListener(s);
+		control.addChangeListener(new EventoSlider());
+		JPanel laminaSlider= new JPanel();
+		laminaSlider.add(control);
+		add(laminaSlider, BorderLayout.NORTH);
+	}
+	private class EventoSlider implements ChangeListener{
+
+		@Override
+		public void stateChanged(ChangeEvent e) {
+			// TODO Auto-generated method stub
+			rotulo.setFont(new Font("Arial", Font.PLAIN,control.getValue()));
+		}
+		
+	}
+	private JLabel rotulo;
+	private JSlider control;
+	private static int contador;
+}

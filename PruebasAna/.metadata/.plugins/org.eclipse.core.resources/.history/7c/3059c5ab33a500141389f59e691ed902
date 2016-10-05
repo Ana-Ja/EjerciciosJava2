@@ -1,0 +1,10 @@
+
+public class Principal {
+
+	public static void main(String[] args) {
+		Farola farola1 = new Farola("farola2", 1, 0, 2.25, 3);
+		System.out.println("Farola:" + farola1.nombre + " tiene " + farola1.num_luminarias);
+		System.out.println("Posicion:" + farola1.posicion() );
+	}
+
+}

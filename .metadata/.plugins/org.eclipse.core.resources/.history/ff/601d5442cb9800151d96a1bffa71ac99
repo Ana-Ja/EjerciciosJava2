@@ -1,0 +1,112 @@
+package graficos;
+
+import java.awt.*;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+
+import javax.swing.*;
+
+public class Procesador {
+
+	public static void main(String[] args) {
+		MarcoProcesador mimarco = new MarcoProcesador();
+		mimarco.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+
+	}
+
+}
+class MarcoProcesador extends JFrame{
+	public MarcoProcesador() {
+		setBounds(500,300,500,350);
+		
+		LaminaProcesador milamina = new LaminaProcesador();
+		add(milamina);
+		setVisible(true);
+	}
+}
+class LaminaProcesador extends JPanel{
+	public LaminaProcesador(){
+		setLayout(new BorderLayout());
+		JPanel laminamenu= new JPanel();
+		CrearMenu();
+		laminamenu.add(mibarra);
+		add(laminamenu, BorderLayout.NORTH);
+		miarea = new JTextPane();
+		add(miarea, BorderLayout.CENTER);
+		
+	}
+	private JMenuBar mibarra;
+	private JTextPane miarea ;
+	JMenu fuente, estilo, tamano;
+	Font letras;
+	public void configuta_menu(String rotulo, String menu, String tipo_letra, int estilos, int tamanoo){
+		JMenuItem elem_menu = new JMenuItem(rotulo);
+	    if (menu=="fuente") {
+	    	fuente.add(elem_menu);
+	    }else if (menu=="estilo") {
+	    	estilo.add(elem_menu);
+	    }else if (menu=="tamano") {
+	    	tamano.add(elem_menu);
+	    }
+		
+	}
+	private void CrearMenu() {
+		 mibarra = new JMenuBar();
+		 fuente = new JMenu("Fuente");
+		 tamano = new JMenu("Tamaño");
+		 estilo = new JMenu("Estilo");
+		//**********************************************
+		JMenuItem arial = new JMenuItem("Arial");
+		JMenuItem Courier = new JMenuItem("Courier");
+		//se puede hacer con clase interna Gestiona_menus()
+		//Courier.addActionListener(new Gestiona_menus());
+		//y tb con clase interna anonima
+		Courier.addActionListener(new ActionListener(){
+
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				miarea.setFont(new Font("Courier", Font.PLAIN, 12));
+				
+			}
+			
+		});
+		JMenuItem verdana = new JMenuItem("Verdana");
+		
+
+		fuente.add(arial);
+		fuente.add(Courier);
+		fuente.add(verdana);
+		//**********************************************
+		JMenuItem negrita = new JMenuItem("Negrita");
+		JMenuItem cursiva = new JMenuItem("Cursiva");
+
+		estilo.add(negrita);
+		estilo.add(cursiva);
+		//**********************************************
+		JMenuItem diez= new JMenuItem("10");
+		JMenuItem doce = new JMenuItem("12");
+		JMenuItem catorce= new JMenuItem("14");
+		JMenuItem dieciseis = new JMenuItem("16");
+		
+		tamano.add(diez);
+		tamano.add(doce);
+		tamano.add(catorce);
+		tamano.add(dieciseis);
+		//**********************************************
+		mibarra.add(fuente);
+		mibarra.add(estilo);
+		mibarra.add(tamano);
+		add(mibarra);//agrego el menu a la lamina
+		
+	}
+	//creamos clase interna para gestionar los evento de comic
+	private class Gestiona_menus implements ActionListener{
+		
+		@Override
+		public void actionPerformed(ActionEvent e) {
+			// TODO mi-generated method stub
+			miarea.setFont(new Font("Courier", Font.PLAIN, 12));
+		}
+		
+	}
+}

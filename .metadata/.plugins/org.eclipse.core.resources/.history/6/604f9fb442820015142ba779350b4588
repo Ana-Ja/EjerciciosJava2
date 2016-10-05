@@ -1,0 +1,42 @@
+package graficos;
+
+import java.awt.Graphics;
+
+import javax.swing.JFrame;
+import javax.swing.JPanel;
+import javax.swing.JTextField;
+
+//Video 74
+public class FocoEvento {
+
+	public static void main(String[] args) {
+		MarcoFoto mimarco = new MarcoFoto();
+		mimarco.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+
+	}
+
+}
+class MarcoFoto extends JFrame{
+	
+	public MarcoFoto() {
+		setVisible(true);
+		setBounds(700,300,500,300);
+		setTitle("Eventos Teclado");
+		//debemos preparar al marco para esta preparado para recibir eventos
+		EventosdeRaton2 nuevoEstado = new EventosdeRaton2();
+		addMouseMotionListener( nuevoEstado);
+	}
+		
+}
+class LaminaFoco extends JPanel {
+	public void paintComponent(Graphics g){
+		super.paintComponent(g);
+		//pintamos los cuadros de texto
+		//inhabilitamos el layout que Java le da a los componentes por deecto
+		setLayout(null);
+		cuadro1 = new JTextField();
+		cuadro2 = new JTextField();
+	}
+	JTextField cuadro1 ;
+	JTextField cuadro2;
+}

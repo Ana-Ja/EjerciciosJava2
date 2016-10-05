@@ -1,0 +1,30 @@
+package graficos;
+
+import javax.swing.*;
+
+public class MarcoSlider {
+
+	public static void main(String[] args) {
+		Frame_Slider mimarco = new Frame_Slider();
+		mimarco.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+
+	}
+
+}
+class Frame_Slider extends JFrame{
+	public Frame_Slider() {
+		setBounds(500,300,500,350);
+		
+		Lamina_Slider milamina = new Lamina_Slider();
+		add(milamina);
+		setVisible(true);
+	}
+}
+class Lamina_Slider extends JPanel{
+	public Lamina_Slider(){
+		//la interfa
+		JSlider control = new JSlider(SwingConstants.VERTICAL,20,100,25);
+		add(control);
+		
+	}
+}

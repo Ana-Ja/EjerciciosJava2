@@ -1,0 +1,29 @@
+package graficos;
+
+import javax.swing.*;
+
+public class CampoPassword{
+
+	public static void main(String[] args) {
+		MarcoPassword mimarco = new MarcoPassword();
+		mimarco.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+
+	}
+
+}
+class MarcoPassword extends JFrame{
+	public MarcoPassword() {
+		setBounds(500,300,500,350);
+		
+		LaminaPassword milamina = new LaminaPassword();
+		add(milamina);
+		setVisible(true);
+	}
+}
+class LaminaPassword extends JPanel{
+	public LaminaPassword(){
+		JTextField elcampo = new JTextField();
+		add(elcampo);
+		
+	}
+}

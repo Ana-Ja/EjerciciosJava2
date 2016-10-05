@@ -1,0 +1,165 @@
+import java.util.ArrayList;
+import java.util.Iterator;
+
+public class Farola {
+
+  private final String nombre;
+  private final int luminarias;
+  private final int camaras;
+  private final double x, y;
+  private final boolean posicion;
+  private   boolean encendida;
+  
+  
+
+public static class Builder {
+    // Parámetros requeridos
+    private final String nombre;
+    // Parámetros opcionales: con valores por defecto
+    private int luminarias = 1;
+    private int camaras = 0;
+    private boolean posicion = false;
+    private double x = 0.0;
+    private double y = 0.0;
+    private boolean encendida = false;
+    
+    public Builder(String nombre) {
+      this.nombre = nombre;
+    }
+
+    public Builder luminarias(int v) {
+      luminarias = v;
+      return this;
+    }
+    public Builder camaras(int v) {
+      camaras = v;
+      return this;
+    }
+    
+    public Builder encendida(boolean v) {
+        encendida = v;
+        return this;
+      }
+    public Builder posicion(double x, double y) {
+      posicion = true;
+      this.x  = x;
+      this.y = y;
+      return this;
+    }
+
+    public Farola build() {
+      return new Farola(this);
+    }
+  }
+
+  public Farola(Builder builder) {
+    this.nombre     = builder.nombre;
+    this.luminarias = builder.luminarias;
+    this.camaras    = builder.camaras;
+    this.posicion   = builder.posicion;
+    this.x          = builder.x;
+    this.y          = builder.y;
+    this.encendida          = builder.encendida;
+  }
+  
+  
+
+  @Override
+  public String toString() {
+	return "Farola [nombre=" + nombre + ", luminarias=" + luminarias
+			+ ", camaras=" + camaras + ", x=" + x + ", y=" + y + "encendida= " + encendida + "]";
+ }
+ 
+//  public static ArrayList<Farola> hacerGrupo(String consulta, int num_farolas){
+//	  ArrayList<Farola> rdo= new ArrayList<Farola>();
+//	  //realizo consulta y devuelve num_farolas farolas
+//	  for ( int i=1; i<num_farolas;i++){
+//		  
+//		  rdo.add( new Farola.Builder("luminosa grupo B" + i).camaras(i).posicion(i*10, i*20).build());
+//	  }
+//	  return rdo;
+//  }
+//  
+//  
+//
+//@Override
+//public void encender(ArrayList<Farola> grupo) {
+//	ArrayList<Farola> rdo= new ArrayList<Farola>();
+//	Iterator<Farola> iterador = grupo.iterator();
+//    while (iterador.hasNext()){
+//    	
+//    	Farola farola = iterador.next();
+//    	farola.encendida = true;
+//    }
+//	
+//}
+//
+//@Override
+//public void visualizar(ArrayList<Farola> grupo) {
+//	Iterator<Farola> iterador = grupo.iterator();
+//    while (iterador.hasNext()){
+//    	
+//    	Farola farola_grupo = iterador.next();
+//    	System.out.println(farola_grupo.toString());
+//    }
+//	
+//}
+//
+//@Override
+//public void apagar(ArrayList<Farola> grupo) {
+//	ArrayList<Farola> rdo= new ArrayList<Farola>();
+//	Iterator<Farola> iterador = grupo.iterator();
+//    while (iterador.hasNext()){
+//    	
+//    	Farola farola = iterador.next();
+//    	farola.encendida = false;
+//    }
+//	
+//}
+//
+//
+//
+//@Override
+//public void operacion1() {
+//	// TODO Auto-generated method stub
+//	
+//}
+
+public boolean isEncendida() {
+	return encendida;
+}
+
+
+public void setEncendida(boolean encendida) {
+	this.encendida = encendida;
+}
+
+public String get_nombre() {
+    return this.nombre;
+  }
+
+  public int get_luminarias() {
+    return this.luminarias;
+  }
+
+  public int get_camaras() {
+    return this.camaras;
+  }
+
+  public boolean tiene_posicion() {
+    return this.posicion;
+  }
+
+  public double get_x() {
+    return this.x;
+  }
+
+  public double get_y() {
+    return this.y;
+  }
+
+  public double[] get_posicion() {
+    return new double[]{this.x, this.y};
+  }
+
+}

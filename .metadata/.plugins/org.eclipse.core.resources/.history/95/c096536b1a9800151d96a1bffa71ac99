@@ -1,0 +1,27 @@
+package graficos;
+
+import javax.swing.*;
+
+public class Procesador {
+
+	public static void main(String[] args) {
+		MarcoProcesador mimarco = new MarcoProcesador();
+		mimarco.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+
+	}
+
+}
+class MarcoProcesador extends JFrame{
+	public MarcoProcesador() {
+		setBounds(500,300,500,350);
+		
+		LaminaProcesador milamina = new LaminaProcesador();
+		add(milamina);
+		setVisible(true);
+	}
+}
+class LaminaProcesador extends JPanel{
+	public LaminaProcesador(){
+		
+	}
+}

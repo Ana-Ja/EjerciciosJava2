@@ -1,0 +1,30 @@
+package graficos;
+
+import javax.swing.JFrame;
+import javax.swing.JPanel;
+import javax.swing.JTextField;
+
+public class PruebaTexto {
+
+	public static void main(String[] args) {
+		MarcoTexto mimarco = new MarcoTexto();
+		mimarco.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+
+	}
+
+}
+class MarcoTexto extends JFrame{
+	public MarcoTexto(){
+		setTitle("Pruebas texto");
+		setVisible(true);
+		setBounds(700,300,500,300);
+		LaminaTexto lamina = new LaminaTexto();
+		add(lamina);
+	}
+}
+class LaminaTexto extends JPanel {
+	public LaminaTexto(){
+		JTextField campo1 = new JTextField("introduzca su nombre");
+		add(campo1);
+	}
+}

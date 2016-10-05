@@ -1,0 +1,52 @@
+
+public class Farola {
+	String nombre;
+	int num_luminarias;
+	int num_camaras;
+	double pos_x;
+	double pos_y;
+	public Farola(){
+		this.num_luminarias = 1;
+		this.num_camaras = 0;
+	}
+	public Farola(String nombre, int num_luminarias, int num_camaras,
+			double pos_x, double pos_y) {
+		super();
+		this.nombre = nombre;
+		this.num_luminarias = 1;
+		this.num_camaras = 0;
+		this.pos_x = pos_x;
+		this.pos_y = pos_y;
+	}
+	public String getNombre() {
+		return nombre;
+	}
+	public void setNombre(String nombre) {
+		this.nombre = nombre;
+	}
+	public int getNum_luminarias() {
+		return num_luminarias;
+	}
+	public void setNum_luminarias(int num_luminarias) {
+		this.num_luminarias = num_luminarias;
+	}
+	public int getNum_camaras() {
+		return num_camaras;
+	}
+	public void setNum_camaras(int num_camaras) {
+		this.num_camaras = num_camaras;
+	}
+	public double getPos_x() {
+		return pos_x;
+	}
+	public void setPos_x(double pos_x) {
+		this.pos_x = pos_x;
+	}
+	public double getPos_y() {
+		return pos_y;
+	}
+	public void setPos_y(double pos_y) {
+		this.pos_y = pos_y;
+	}
+	
+}

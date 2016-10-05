@@ -1,0 +1,8 @@
+1.- Máximo común divisor y mínimo común múltiplo de dos números introducidos por teclado
+2.- DUF a la que se le pasa como parámetro una tabla que debe rellenar. Se leerá por teclado una
+serie de números: guardaremos solo los pares e ignoraremos los impares. También hay que devolver la
+cantidad de impares ignorados.
+3.- DUF a la que se le pasa una tabla de enteros y un número. Debemos buscar todas las apariciones de ese número en la tabla.
+4.- DUF que calcule el n-ésimo término de la serie de Fibonacci. En esta serie el n-ésimo valor se
+calcula sumando los dos valores anteriores. Es decir fibonacci(n) = fibonacci(n-
+1)+fibonacci(n-2), siendo fibonacci(0)=1 y fibonacci(1)=1.

@@ -1,0 +1,7 @@
+
+public interface Operaciones {
+
+	void Encender();
+	void Apagar();
+	void Operacion1();
+}

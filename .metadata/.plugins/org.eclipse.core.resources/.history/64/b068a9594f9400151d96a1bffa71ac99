@@ -1,0 +1,27 @@
+package graficos;
+
+import javax.swing.*;
+
+public class PruebaCombo {
+
+	public static void main(String[] args) {
+		MarcoCombo mimarco = new MarcoCombo();
+		mimarco.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+
+	}
+
+}
+class MarcoCombo extends JFrame{
+	public MarcoCombo() {
+		setBounds(500,300,500,350);
+		
+		LaminaCombo milamina = new LaminaCombo();
+		add(milamina);
+		setVisible(true);
+	}
+}
+class LaminaCombo extends JPanel{
+	public LaminaCombo(){
+		
+	}
+}

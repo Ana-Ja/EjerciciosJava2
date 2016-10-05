@@ -1,0 +1,29 @@
+package graficos;
+
+import javax.swing.*;
+
+public class PruebaCheck {
+
+	public static void main(String[] args) {
+		MarcoCheck mimarco = new MarcoCheck();
+		mimarco.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+
+	}
+
+}
+class MarcoCheck extends JFrame{
+	public MarcoCheck() {
+		setBounds(500,300,500,350);
+		
+		LaminaPrueba milamina = new LaminaPrueba();
+		add(milamina);
+		setVisible(true);
+	}
+}
+class LaminaCheck extends JPanel{
+	public LaminaPrueba(){
+		JTextField elcampo = new JTextField();
+		add(elcampo);
+		
+	}
+}

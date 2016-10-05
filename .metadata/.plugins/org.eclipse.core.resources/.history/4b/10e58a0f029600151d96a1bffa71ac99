@@ -1,0 +1,28 @@
+package graficos;
+
+import javax.swing.*;
+
+public class MarcoSpinner {
+
+	public static void main(String[] args) {
+		FrameSpinner mimarco = new FrameSpinner();
+		mimarco.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+
+	}
+
+}
+class FrameSpinner extends JFrame{
+	public FrameSpinner() {
+		setBounds(500,300,500,350);
+		
+		LaminaSpinner milamina = new LaminaSpinner();
+		add(milamina);
+		setVisible(true);
+	}
+}
+class LaminaSpinner extends JPanel{
+	public LaminaSpinner(){
+		JSpinner control = new JSpinner();
+		add(control);
+	}
+}
